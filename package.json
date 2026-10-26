@@ -1,8 +1,8 @@
 {
   "name": "diff-open-writable",
   "displayName": "Open Writable File from Diff",
-  "description": "Lets a keybinding open the real workspace file from a diff editor, matching the editor title 'Open File' button (Git: Open File).",
-  "version": "0.0.1",
+  "description": "Lets a keybinding open the real workspace file from a diff editor or a read-only editor, matching the editor title 'Open File' button (Git: Open File).",
+  "version": "0.0.2",
   "publisher": "lgzzzz",
   "license": "MIT",
   "repository": {
@@ -38,6 +38,13 @@
         "command": "diffOpenWritable.openFile",
         "title": "Open File from Diff (Writable)",
         "category": "Diff"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "f4",
+        "command": "diffOpenWritable.openFile",
+        "when": "(config.git.enabled && isInDiffEditor) || (editorTextFocus && activeEditorIsReadonly)"
       }
     ]
   }

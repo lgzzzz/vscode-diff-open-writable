@@ -3,15 +3,20 @@
 const vscode = require('vscode');
 
 /**
- * Resolve the URI that the active diff editor shows on its "modified" side.
+ * Resolve the target resource for the active editor.
  *
- * This is the same resource that VS Code passes to the editor title action:
+ * For a diff editor this is the "modified" side, which is the same resource
+ * that VS Code passes to the editor title action:
  * `EditorResourceAccessor.getOriginalUri(activeEditor, { supportSideBySide: PRIMARY })`
  * resolves a diff input to its modified resource.
  *
+ * For a read-only editor (for example the `git:` document that the built-in
+ * `git.openFile` opens from a keybinding) this is the document resource itself;
+ * `git.openFile` converts a `git:` URI into the corresponding workspace file.
+ *
  * @returns {vscode.Uri | undefined}
  */
-function getModifiedDiffUri() {
+function resolveTargetUri() {
 	const input = vscode.window.tabGroups.activeTabGroup.activeTab?.input;
 
 	if (input instanceof vscode.TabInputTextDiff) {
@@ -33,7 +38,7 @@ function getModifiedDiffUri() {
  * explicitly makes it take the same code path as the editor title button.
  */
 async function openFileFromDiff() {
-	const uri = getModifiedDiffUri();
+	const uri = resolveTargetUri();
 
 	if (!uri) {
 		return;
