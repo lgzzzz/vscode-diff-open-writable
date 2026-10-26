@@ -1,0 +1,44 @@
+{
+  "name": "diff-open-writable",
+  "displayName": "Open Writable File from Diff",
+  "description": "Lets a keybinding open the real workspace file from a diff editor, matching the editor title 'Open File' button (Git: Open File).",
+  "version": "0.0.1",
+  "publisher": "lgzzzz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lgzzzz/vscode-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lgzzzz/vscode-extension/issues"
+  },
+  "homepage": "https://github.com/lgzzzz/vscode-extension#readme",
+  "keywords": [
+    "git",
+    "diff",
+    "keybinding",
+    "open-file"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onCommand:diffOpenWritable.openFile"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "diffOpenWritable.openFile",
+        "title": "Open File from Diff (Writable)",
+        "category": "Diff"
+      }
+    ]
+  }
+}
