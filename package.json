@@ -3,7 +3,7 @@
   "displayName": "Open Writable File from Diff",
   "description": "Lets a keybinding open the real workspace file from a diff editor or a read-only editor, matching the editor title 'Open File' button (Git: Open File).",
   "version": "0.0.2",
-  "publisher": "lgzzzz",
+  "publisher": "lgzzz",
   "license": "MIT",
   "repository": {
     "type": "git",
