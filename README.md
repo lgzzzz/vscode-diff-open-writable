@@ -37,5 +37,5 @@ code --install-extension diff-open-writable-0.0.2.vsix
 ## 卸载
 
 ```bash
-code --uninstall-extension lgzzzz.diff-open-writable
+code --uninstall-extension lgzzz.diff-open-writable
 ```
