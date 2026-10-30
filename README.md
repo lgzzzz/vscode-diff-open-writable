@@ -18,8 +18,8 @@ VS Code 内置 Git 扩展的 `git.openFile`：
 从源码打包并安装（需要 Node.js）：
 
 ```bash
-git clone https://github.com/lgzzzz/vscode-extension.git
-cd vscode-extension
+git clone https://github.com/lgzzzz/vscode-diff-open-writable.git
+cd vscode-diff-open-writable
 npx --yes @vscode/vsce@3 package -o diff-open-writable-0.0.2.vsix --no-dependencies
 code --install-extension diff-open-writable-0.0.2.vsix
 ```
