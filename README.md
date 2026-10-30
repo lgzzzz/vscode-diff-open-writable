@@ -1,7 +1,5 @@
 # Open Writable File from Diff
 
-A tiny VS Code extension that makes `Git: Open File` invoked from a keybinding open the real workspace file instead of the read-only `git:` document.
-
 让 `Git: Open File` 在 diff 编辑器或只读编辑器里通过快捷键（例如 F4）打开**工作区里的可写文件**，而不是只读的 `git:` 虚拟文档。
 
 ## 为什么需要它
@@ -35,19 +33,6 @@ code --install-extension diff-open-writable-0.0.2.vsix
   "when": "(config.git.enabled && isInDiffEditor) || (editorTextFocus && activeEditorIsReadonly)"
 }
 ```
-
-- 在提交历史里打开文件 diff，按 F4 打开工作区中的可写文件。
-- 如果 F4 先把只读的 `git:` 文档打开了，在那个只读文档里再按一次 F4，也会打开对应的可写文件。
-
-> 如果 `keybindings.json` 里还留着原来的 F4 → `git.openFile` 绑定（或其它 F4 绑定），用户绑定会覆盖扩展默认绑定，请删除或替换它。扩展无法修改用户自己的 `keybindings.json`。
-
-## 说明
-
-- 需要启用内置 Git 扩展（`vscode.git`）。
-- 单文件 diff 使用 `TabInputTextDiff.modified`，与标题栏按钮的参数一致；只读编辑器（如 `git:` 文档）使用当前文档 URI 交给 `git.openFile` 转换。
-- 多文件 diff（multi-diff）没有稳定的 tab input API，扩展回退到当前聚焦的 diff 侧，再交给 `git.openFile` 转换；在“重命名且焦点在 original 侧”等少数情况下可能定位到旧路径。
-- 只读的 `file:`（例如没有写权限的文件）不会被改成可写；这个扩展解决的是 diff / `git:` 虚拟文档这一路径。
-- 只是本地 workaround；真正的修复应在 `extensions/git/src/commands.ts` 中完成。
 
 ## 卸载
 
